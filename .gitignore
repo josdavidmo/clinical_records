@@ -1,3 +1,10 @@
+#Virtualenv
+clinical_records_env/
+clinical_records_env/*
+
+#Database
+db.sqlite3*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
