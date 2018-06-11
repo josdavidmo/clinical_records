@@ -263,7 +263,6 @@ class CreateMedicalHistoryView(View):
                 general.physical_exam.diagnostics_images.add(*cie10s)
                 general.formulas.medicines.add(*medicines)
                 general.formulas.paraclinicals.add(*paraclinicals)
-                general.physical_exam.diagnostics_images.add(*cei10s)
         return HttpResponseRedirect(reverse('patients-list'))
 
 
