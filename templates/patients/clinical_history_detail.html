@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Historias clínicas{% endblock %}
+
+{% block heading %} <h1>Ver Historia Clinica</h1> {% endblock %}
+{% block content %}
+<form action="" class="uniForm" method="post">
+  <div>
+    <br><br>
+    <p class="font-weight-bold"><h4>Información del Paciente</h4></p><hr style="background-color: #fff;border-top: 2px dashed #8c8b8b;">
+    <br>
+    {% crispy forms.patient %}
+    {% crispy forms.general %}
+    <br><br>
+    <p class="font-weight-bold"><h4>Antecedentes</h4></p><hr style="background-color: #fff;border-top: 2px dashed #8c8b8b;">
+    <br>
+    {% crispy forms.clinical %}
+    <br><br>
+    <p class="font-weight-bold"><h4>Revisión por sistemas</h4></p><hr style="background-color: #fff;border-top: 2px dashed #8c8b8b;">
+    <br>
+    {% crispy forms.systems %}
+    <br><br>
+    <p class="font-weight-bold"><h4>Examen físico</h4></p><hr style="background-color: #fff;border-top: 2px dashed #8c8b8b;">
+    <br>
+    {% crispy forms.physical %}
+    <br><br>
+    <p class="font-weight-bold"><h4>Formulas</h4></p><hr style="background-color: #fff;border-top: 2px dashed #8c8b8b;">
+    <br>
+    {% crispy forms.formulas %}
+  </div>
+</form>
+
+<a href="{% url 'medical-record-list' %}"><input style="float:left" type="button" class="btn btn-primary btn-fw" value="Volver"></input></a>
+{% endblock %}

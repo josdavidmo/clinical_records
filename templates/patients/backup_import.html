@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Importar Copias de Seguridad{% endblock %}
+
+{% block heading %} <h1>Importar Copias de Seguridad</h1> {% endblock %}
+
+{% block content %}
+
+    <form action="" style="margin-top:40px" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <label for="name" class="col-md-4">Archivo:</label>
+      <input type="file" name="name" id="name" required/>
+      <input id="save" style="float:right;margin-top:40px" type="submit" class="btn btn-primary btn-fw" value="Guardar"></input>
+    </form>
+    <a href="{% url 'backups-list' %}"><input style="float:left" type="button" class="btn btn-primary btn-fw" value="Volver"></input></a>
+
+{% endblock %}

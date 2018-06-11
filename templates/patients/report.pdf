@@ -1,0 +1,236 @@
+{% extends "easy_pdf/base.html" %}
+
+{% load bootstrap3 %}
+{%block page_header%}
+  <h1>Consultorio Médico Dr. Pedro Vianey Aguirre Martinez, Cel. 312.473.70.00 Bogotá D.C.</h1>
+  <center><h1><b>HISTORIA CLÍNICA No</b> {{forms.patient_pdf.document|default_if_none:"" }}</h1></center>
+{%endblock%}
+{% block content %}
+  <br><br>
+  <p class="font-weight-bold"><h1>Información del paciente</h1></p><hr style="background-color: #fff;border-top: 2px dashed #8c8b8b;">
+  <br>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    <b>Apellidos:</b> {{forms.patient_pdf.last_names|default_if_none:"" }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <b>Nombres:</b> {{forms.patient_pdf.names|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    <b>Fecha de Nacimiento:</b> {{forms.patient_pdf.birth_date|default_if_none:"" }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <b>Ciudad:</b> {{forms.patient_pdf.birth_city|default_if_none:"" }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    <b>Domicilio:</b> {{forms.patient_pdf.address|default_if_none:"" }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <b>Tel:</b> {{forms.patient_pdf.phone|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    <b>Escolaridad:</b> {{forms.patient_pdf.scholarship|default_if_none:"" }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <b>Profesión/ocupación:</b> {{forms.patient_pdf.profesion|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    <b>Sexo:</b> {% if forms.patient_pdf.gender == 1 %}Masculino{% else %}Femenino{% endif %}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <b>Estado civil:</b> {{forms.patient_pdf.civil_status|default_if_none:"" }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <b>Procedencia:</b> {{forms.patient_pdf.origin|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    <b>Acompañante:</b> {{forms.general_pdf.companion|default_if_none:"" }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <b>Teléfono acompañante:</b> {{forms.general_pdf.phone_companion|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    <b>Referido por:</b> {{forms.general_pdf.referred_by|default_if_none:"" }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <b>SGSS:</b> {{forms.general_pdf.sgss|default_if_none:"" }}
+  </div>
+  <br><br>
+<hr style="background-color: #fff;border-top: 2px dashed #8c8b8b;">
+  <br>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Fecha de consulta: {{forms.general_pdf.created_at_date|default_if_none:"" }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    Hora de consulta: {{forms.general_pdf.created_at_hour|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    <b>Motivo de consulta</b>: {{forms.general_pdf.reason_consultation|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    <b>Enfermedad actual</b>: {{forms.general_pdf.current_illness|default_if_none:"" }}
+  </div>
+  <br><br>
+  <p class="font-weight-bold"><h1>Antecedentes</h1></p><hr style="background-color: #fff;border-top: 2px dashed #8c8b8b;">
+  <br>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Patológicos: {{forms.clinical_pdf.pathological|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Quirúrgicos: {{forms.clinical_pdf.surgical|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Traumáticos: {{forms.clinical_pdf.traumatic|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Intoxicaciones: {{forms.clinical_pdf.poisoning|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Tabaquismo: {{forms.clinical_pdf.smoking|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Licor: {{forms.clinical_pdf.liqueur|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Psicoactivos: {{forms.clinical_pdf.psychoactive|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Medicamentos permanentes: {{forms.clinical_pdf.permanent_medication|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Alérgicos: {{forms.clinical_pdf.allergic|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Inmunológicos: {{forms.clinical_pdf.immunological|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Transfusiones: {{forms.clinical_pdf.transfusions|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Familiares: {{forms.clinical_pdf.relatives|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Obstétricos: <b>Men</b>&nbsp;{{forms.clinical_pdf.men|default_if_none:"" }}&nbsp;&nbsp;
+    <b>Cic</b> {{forms.clinical_pdf.Cic|default_if_none:"" }}&nbsp;&nbsp;
+    <b>Fum</b> {{forms.clinical_pdf.FUM|default_if_none:"" }}&nbsp;&nbsp;
+    <b>G</b> {{forms.clinical_pdf.G|default_if_none:"" }}&nbsp;&nbsp;
+    <b>P</b> {{forms.clinical_pdf.P|default_if_none:"" }}&nbsp;&nbsp;
+    <b>A</b> {{forms.clinical_pdf.A|default_if_none:"" }}&nbsp;&nbsp;
+    <b>C</b> {{forms.clinical_pdf.C|default_if_none:"" }}&nbsp;&nbsp;
+    <b>Fup</b> {{forms.clinical_pdf.FUP|default_if_none:"" }}&nbsp;&nbsp;
+    <b>Menop</b> {{forms.clinical_pdf.Menop|default_if_none:"" }}&nbsp;&nbsp;
+  </div>
+  <br><br>
+  <p class="font-weight-bold"><h1>Revisión por sistemas</h1></p><hr style="background-color: #fff;border-top: 2px dashed #8c8b8b;">
+  <br>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Piel y Faneras: {{forms.systems_pdf.skin_faneras|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Ó.R.L: {{forms.systems_pdf.orl|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Respiratorio: {{forms.systems_pdf.respiratory|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Cardio-vascular: {{forms.systems_pdf.cardiovascular|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Digestivo: {{forms.systems_pdf.digestive|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Genito-urinario: {{forms.systems_pdf.genitourinary|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    SNC y Periferico: {{forms.systems_pdf.snc_peripheral|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Endocrino: {{forms.systems_pdf.endocrine|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Locomotor: {{forms.systems_pdf.locomotor|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Hemático y Linfático: {{forms.systems_pdf.hematic_lymphatic|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Organos de los sentidos: {{forms.systems_pdf.senses_organs|default_if_none:"" }}
+  </div>
+  <br><br>
+  <p class="font-weight-bold"><h1>Examen físico</h1></p><hr style="background-color: #fff;border-top: 2px dashed #8c8b8b;">
+  <br>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    <b>Peso</b>&nbsp;{{forms.physical_pdf.weight|default_if_none:"" }}&nbsp;&nbsp;
+    <b>Tall</b> {{forms.physical_pdf.tall|default_if_none:"" }}&nbsp;&nbsp;
+    <b>Í.M</b> {{forms.physical_pdf.IM|default_if_none:"" }}&nbsp;&nbsp;
+    <b>TA</b> {{forms.physical_pdf.TA|default_if_none:"" }}&nbsp;&nbsp;
+    <b>Fc</b> {{forms.physical_pdf.Fc|default_if_none:"" }}&nbsp;&nbsp;
+    <b>/min.Fr</b> {{forms.physical_pdf.minfr|default_if_none:"" }}&nbsp;&nbsp;
+    <b>/min.T</b> {{forms.physical_pdf.mint|default_if_none:"" }}&nbsp;&nbsp;
+    <b>SPO<SUB>2</SUB></b> {{forms.physical_pdf.so|default_if_none:"" }}<br>
+    <b>P.C.</b> {{forms.physical_pdf.pe|default_if_none:"" }}&nbsp;&nbsp;
+    <b>P.A.</b> {{forms.physical_pdf.pa|default_if_none:"" }}&nbsp;&nbsp;
+
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Esfera mental: {{forms.physical_pdf.mental_sphere|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Cabeza: {{forms.physical_pdf.head|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Ó.R.L: {{forms.physical_pdf.orl|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Cuello-Tiroides: {{forms.physical_pdf.neck_thyroid|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Tórax: {{forms.physical_pdf.chest|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Cardiovascular: {{forms.physical_pdf.cardiovascular|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Respiratorio: {{forms.physical_pdf.respiratory|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Digestivo: {{forms.physical_pdf.digestive|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Mamas: {{forms.physical_pdf.mammary_gland|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Genitourinario: {{forms.physical_pdf.genitourinary|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    SNC y Periferico: {{forms.physical_pdf.snc_peripheral|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Muscular y osteoarticular: {{forms.physical_pdf.osteomuscular|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Piel y Faneras: {{forms.physical_pdf.skin_faneras|default_if_none:"" }}
+  </div>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    Organos de los sentidos: {{forms.physical_pdf.senses_organs|default_if_none:"" }}
+  </div>
+  <br><br><br><br>
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+    <strong>Diagnóstico:</strong>
+    <ul>
+    {% for cie10 in forms.physical_pdf.diagnostics_images %}
+    <li>{{cie10.name|default_if_none:"" }}</li>
+    {% endfor %}
+    </ul>
+  </div>
+  <br><br><br><br>
+  <p class="font-weight-bold"><h1>Prescripción médica</h1></p><hr style="background-color: #fff;border-top: 2px dashed #8c8b8b;">
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+      <h1><b>R/.</b></h1>
+      {% for medicine in forms.formulas_pdf.medicines %}
+      <p>{{medicine.name|default_if_none:"" }}</p>
+      {% endfor %}
+  </div>
+  <br><br><br><br>
+  <p class="font-weight-bold"><h1>Paraclínicos</h1></p><hr style="background-color: #fff;border-top: 2px dashed #8c8b8b;">
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+      <h1><b>R/.</b></h1>
+      {% for paraclinical in forms.formulas_pdf.paraclinicals %}
+      <p>{{paraclinical.name|default_if_none:"" }}</p>
+      {% endfor %}
+  </div>
+  <br><br><br><br>
+  <p class="font-weight-bold"><h1>Remisión</h1></p><hr style="background-color: #fff;border-top: 2px dashed #8c8b8b;">
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+      <h1><b>R/.</b></h1>
+      <p>{{forms.formulas_pdf.remission|default_if_none:"" }}</p>
+  </div>
+  <br><br><br><br>
+  <p class="font-weight-bold"><h1>Conducta</h1></p><hr style="background-color: #fff;border-top: 2px dashed #8c8b8b;">
+  <div class="row" style="font-size:14px;font-family:times new roman, times, serif;width:100%">
+      <h1><b>R/.</b></h1>
+      <p>{{forms.formulas_pdf.conduct|default_if_none:"" }}</p>
+  </div>
+
+{% endblock %}

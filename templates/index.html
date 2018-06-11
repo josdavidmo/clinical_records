@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% load render_table from django_tables2 %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block heading %} <h2>Estadísticas generales</h2> {% endblock %}
+
+{% block content %}
+<div class="row" style="margin-top:70px">
+  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+    <div class="card card-statistics">
+      <div class="card-body">
+        <div class="clearfix">
+          <div class="float-left">
+            <i class="mdi mdi-account-location text-info icon-lg"></i>
+          </div>
+          <div class="float-right">
+            <p class="card-text text-right">Total pacientes registrados</p>
+            <div class="fluid-container">
+              <h3 class="card-title font-weight-bold text-right mb-0">{{patients}}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+    <div class="card card-statistics">
+      <div class="card-body">
+        <div class="clearfix">
+          <div class="float-left">
+            <i class="mdi mdi-cube text-danger icon-lg"></i>
+          </div>
+          <div class="float-right">
+            <p class="card-text text-right">Total de medicamentos registrados</p>
+            <div class="fluid-container">
+              <h3 class="card-title font-weight-bold text-right mb-0">{{medicines}}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+    <div class="card card-statistics">
+      <div class="card-body">
+        <div class="clearfix">
+          <div class="float-left">
+            <i class="mdi mdi-receipt text-warning icon-lg"></i>
+          </div>
+          <div class="float-right">
+            <p class="card-text text-right">Total de paraclínicos registrados</p>
+            <div class="fluid-container">
+              <h3 class="card-title font-weight-bold text-right mb-0">{{paraclinicals}}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+    <div class="card card-statistics">
+      <div class="card-body">
+        <div class="clearfix">
+          <div class="float-left">
+            <i class="mdi mdi-poll-box text-teal icon-lg"></i>
+          </div>
+          <div class="float-right">
+            <p class="card-text text-right">Total de historias clínicas</p>
+            <div class="fluid-container">
+              <h3 class="card-title font-weight-bold text-right mb-0">{{clinical_histories}}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+    <div class="card card-statistics">
+      <div class="card-body">
+        <div class="clearfix">
+          <div class="float-left">
+            <i class="mdi mdi-poll-box text-info icon-lg"></i>
+          </div>
+          <div class="float-right">
+            <p class="card-text text-right">Total de CIE10</p>
+            <div class="fluid-container">
+              <h3 class="card-title font-weight-bold text-right mb-0">{{cie10s}}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

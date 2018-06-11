@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Historias clínicas{% endblock %}
+
+{% block heading %} <h1>Agregar historia</h1> {% endblock %}
+{% block content %}
+<form action="" class="uniForm" method="post">
+  <div>
+    {% csrf_token %}
+    <br><br>
+    <p class="font-weight-bold"><h4>Información general</h4></p><hr style="background-color: #fff;border-top: 2px dashed #8c8b8b;">
+    <br>
+    {% crispy patient %}
+    {% crispy general %}
+    <br><br>
+    <p class="font-weight-bold"><h4>Antecedentes</h4></p><hr style="background-color: #fff;border-top: 2px dashed #8c8b8b;">
+    <br>
+    {% crispy clinical_history %}
+    <br><br>
+    <p class="font-weight-bold"><h4>Revisión por sistemas</h4></p><hr style="background-color: #fff;border-top: 2px dashed #8c8b8b;">
+    <br>
+    {% crispy systems_review %}
+    <br><br>
+    <p class="font-weight-bold"><h4>Examen físico</h4></p><hr style="background-color: #fff;border-top: 2px dashed #8c8b8b;">
+    <br>
+    {% crispy physical_exam %}
+    <br><br>
+    <p class="font-weight-bold"><h4>Formulas</h4></p><hr style="background-color: #fff;border-top: 2px dashed #8c8b8b;">
+    <br>
+    {% crispy medical_formulas %}
+    <br><br>
+    <input type="submit" style="float:right" name="submit" value="Guardar" class="btn btn-primary btn-fw" id="submit-id-submit">
+  </div>
+  <!-- Nav tabs -->
+</form>
+
+  <a href="{% url 'patients-list' %}"><input style="float:left" type="button" class="btn btn-primary btn-fw" value="Volver"></input></a>
+{% endblock %}

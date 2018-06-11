@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Agregar Paraclinicos{% endblock %}
+
+{% block heading %} <h1>Agregar Paraclinicos</h1> {% endblock %}
+
+{% block content %}
+<form action="" style="margin-top:40px" method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input id="save" style="float:right" type="submit" class="btn btn-primary btn-fw" value="Guardar"></input>
+</form>
+
+  <a href="{% url 'paraclinicals-list' %}"><input style="float:right;margin-right:20px" type="button" class="btn btn-primary btn-fw" value="Volver"></input></a>
+{% endblock %}

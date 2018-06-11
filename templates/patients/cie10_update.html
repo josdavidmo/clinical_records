@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Paraclínicos{% endblock %}
+
+{% block heading %} <h1>Actualizar Paraclínico</h1> {% endblock %}
+
+{% block content %}
+<form action="" method="post">{% csrf_token %}
+  {{ form.as_p }}
+  <input style="float:right" type="submit" class="btn btn-primary btn-fw" value="Actualizar"></input>
+</form>
+  <a href="{% url 'cie10-list' %}"><input style="float:right;margin-right:20px" type="button" class="btn btn-primary btn-fw" value="Volver"></input></a>
+{% endblock %}
